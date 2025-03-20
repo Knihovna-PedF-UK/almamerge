@@ -64,6 +64,7 @@ def main(xlsx_file, marcxml_file, output_file):
                 df.at[index, 'Publisher'] = hash_table[record_id]['Publisher']
                 df.at[index, 'ISBN'] = hash_table[record_id]['ISBN']
 
+        # Převod sloupce mms na řetězec, abysme zabránili jeho zobrazení ve vědecké notaci
         df['mms'] = df['mms'].astype(str)
         # Uložení aktualizované tabulky
         df.to_excel(output_file, index=False)

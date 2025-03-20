@@ -64,6 +64,7 @@ def main(xlsx_file, marcxml_file, output_file):
                 df.at[index, 'Publisher'] = hash_table[record_id]['Publisher']
                 df.at[index, 'ISBN'] = hash_table[record_id]['ISBN']
 
+        df['mms'] = df['mms'].astype(str)
         # Uložení aktualizované tabulky
         df.to_excel(output_file, index=False)
         print(f"Úspěch: Aktualizovaná tabulka byla uložena do souboru {output_file}")
